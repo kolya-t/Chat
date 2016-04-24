@@ -3,22 +3,27 @@
 
 #include <QObject>
 #include <QTcpServer>
+#include <QTcpSocket>
 #include <QString>
+#include <QStringList>
 #include <QMap>
 
-class Server : QTcpServer {
+#define PORT 1234
+
+
+class Server : QObject {
     Q_OBJECT
 public:
     explicit Server(QObject* parent = 0);
-public slots:
-    void onReadyRead();
-    void onDisconnected();
     void sendUserList();
-protected:
-    void incomingConnection(qintptr handle);
+    void sendToAll(const QString&);
+public slots:
+    void onNewConnection();
+    void onDisconnect();
+    void onReadyRead();
 private:
-    QSet<QTcpServer*> clients;
-    QMap<QTcpServer*, QString> users;
+    QTcpServer* server;
+    QMap<QTcpSocket*,QString> clients;
 };
 
 #endif // SERVER_H

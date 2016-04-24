@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>761</width>
+    <height>666</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>CakeChat Client</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QFrame {
+	font: normal 12px Helvetica, Arial, sans-serif;
+}
+#mainFrame {background: white;}
+#upperLabel {
+	font: normal 20px Helvetica, Arial, sans-serif;
+	color: purple;
+}
+#lowerLabel {
+	color: gray;
+}
+#loginFrame {
+	padding: 9px 10px;
+	color: black;
+	background: white;
+	border: 1px solid #d8d8d8;
+	border-radius: 2px;
+	padding: 0px 10px;
+}
+QPushButton {
+	padding: 8px 16px;
+	font: bold 12px Helvetica, Arial, sans-serif;
+	color: #6e6e6e;
+	background: #f3f3f3;
+	background-color: qlineargradient( x1: 0, y1: 0, x2: 0, y2: 1,
+                                        stop: 0 #F5F5F5, stop: 1 #F1F1F1);
+	border: 1px solid #d8d8d8;
+	border-radius: 2px;
+}
+QPushButton:hover {
+	color: #333;
+	border-color: #c6c6c6
+}
+QPushButton:pressed {
+	color: #000;
+	border: 1px solid #c6c6c6;
+	background-color: qlineargradient( x1: 0, y1: 0, x2: 0, y2: 1,
+                                        stop: 0 #eee, stop: 1 #e0e0e0);
+}
+QTextEdit {
+	padding: 7px 10px;
+	color: black;
+	background: white;
+	border: 1px solid #d8d8d8;
+	border-radius: 2px;
+}
+QListWidget {
+	padding: 7px 10px;
+	color: black;
+	background: white;
+	border: 1px solid #d8d8d8;
+	border-radius: 2px;
+}
+QLineEdit {
+	padding: 7px 10px;
+	color: black;
+	background: white;
+	border: 1px solid #d8d8d8;
+	border-radius: 2px;
+}</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QFrame" name="mainFrame">
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_4">
+       <item>
+        <widget class="QLabel" name="upperLabel">
+         <property name="text">
+          <string>CakeChat</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QStackedWidget" name="stackedWidget">
+         <property name="currentIndex">
+          <number>1</number>
+         </property>
+         <widget class="QWidget" name="chatPage">
+          <layout class="QVBoxLayout" name="verticalLayout_2">
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_2">
+             <item>
+              <widget class="QTextEdit" name="teChat">
+               <property name="minimumSize">
+                <size>
+                 <width>300</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="readOnly">
+                <bool>true</bool>
+               </property>
+               <property name="html">
+                <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Helvetica,Arial,sans-serif'; font-size:12px; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:7pt;&quot;&gt;kekekek&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:7pt;&quot;&gt;dfgdfgdfg&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QListWidget" name="lwUsers">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>150</width>
+                 <height>200</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>150</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="selectionMode">
+                <enum>QAbstractItemView::NoSelection</enum>
+               </property>
+               <property name="movement">
+                <enum>QListView::Static</enum>
+               </property>
+               <property name="flow">
+                <enum>QListView::TopToBottom</enum>
+               </property>
+               <property name="layoutMode">
+                <enum>QListView::SinglePass</enum>
+               </property>
+               <property name="spacing">
+                <number>0</number>
+               </property>
+               <property name="viewMode">
+                <enum>QListView::ListMode</enum>
+               </property>
+               <property name="sortingEnabled">
+                <bool>false</bool>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout">
+             <item>
+              <widget class="QLineEdit" name="leMessage">
+               <property name="clearButtonEnabled">
+                <bool>true</bool>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="pbSend">
+               <property name="text">
+                <string>Send</string>
+               </property>
+               <property name="default">
+                <bool>true</bool>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="loginPage">
+          <layout class="QGridLayout" name="gridLayout">
+           <item row="0" column="0">
+            <widget class="QFrame" name="loginFrame">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_6">
+              <item>
+               <widget class="QLabel" name="label_2">
+                <property name="text">
+                 <string>Sign in</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_3">
+                <item>
+                 <layout class="QVBoxLayout" name="verticalLayout_5">
+                  <item>
+                   <widget class="QLabel" name="serverLabel">
+                    <property name="text">
+                     <string>Server:</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="label">
+                    <property name="text">
+                     <string>Name: </string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+                <item>
+                 <layout class="QVBoxLayout" name="verticalLayout_3">
+                  <item>
+                   <widget class="QLineEdit" name="leServer">
+                    <property name="minimumSize">
+                     <size>
+                      <width>170</width>
+                      <height>0</height>
+                     </size>
+                    </property>
+                    <property name="text">
+                     <string>localhost</string>
+                    </property>
+                    <property name="maxLength">
+                     <number>15</number>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLineEdit" name="leName">
+                    <property name="maxLength">
+                     <number>12</number>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_4">
+                <item>
+                 <spacer name="horizontalSpacer">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="pbLogin">
+                  <property name="text">
+                   <string>Login</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <spacer name="horizontalSpacer_2">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="lowerLabel">
+         <property name="text">
+          <string>by kolya-t in 2016</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <tabstops>
+  <tabstop>leName</tabstop>
+  <tabstop>leServer</tabstop>
+  <tabstop>teChat</tabstop>
+  <tabstop>lwUsers</tabstop>
+  <tabstop>leMessage</tabstop>
+  <tabstop>pbLogin</tabstop>
+  <tabstop>pbSend</tabstop>
+ </tabstops>
+ <resources/>
+ <connections/>
+</ui>
