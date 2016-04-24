@@ -69,6 +69,7 @@ void MainWindow::onReadyRead() {
         // Если сообщение - список пользователей
         if (usersRex.indexIn(line) != -1) {
             QStringList users = usersRex.cap(1).split(",");
+            ui->lwUsers->clear();
             foreach (QString user, users) {
                 new QListWidgetItem(QIcon(":/user.png"), user, ui->lwUsers);
             }
@@ -89,7 +90,6 @@ void MainWindow::onReadyRead() {
 
 void MainWindow::onConnected() {
     ui->teChat->clear();
-    ui->lwUsers->clear();
 
     ui->stackedWidget->setCurrentWidget(ui->chatPage);
     socket->write(QString("/login:" + ui->leName->text() + "\n").toUtf8());
