@@ -77,13 +77,13 @@ void MainWindow::onReadyRead() {
         // Системное сообщение
         else if (systemRex.indexIn(line) != -1) {
             QString msg = systemRex.cap(1);
-            ui->teChat->append("<a color=\"gray\">" + msg + "</a>\n");
+            ui->teChat->append("<p color=\"gray\">" + msg + "</p>\n");
         }
         // Если сообщение - от пользователя
         else if (messageRex.indexIn(line) != -1) {
             QString user = messageRex.cap(1);
             QString message = messageRex.cap(2);
-            ui->teChat->append("<b>" + user + "</b>: " + message + "\n");
+            ui->teChat->append("<p><b>" + user + "</b>: " + message + "</p>\n");
         }
     }
 }
