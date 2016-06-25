@@ -98,6 +98,6 @@ void MainWindow::onConnected() {
 
 void MainWindow::onDisconnected() {
     QMessageBox::warning(NULL, "Warning",
-                         "You was disconnected from the server", QMessageBox::Ok);
+                         "You have been disconnected from the server", QMessageBox::Ok);
     ui->stackedWidget->setCurrentWidget(ui->loginPage);
 }
